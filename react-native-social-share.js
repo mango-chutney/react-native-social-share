@@ -9,7 +9,7 @@ module.exports = {
     if (!(params['link'] || params['text'])) {
       callback("missing_link_or_text");
     } else {
-      return KDSocialShare.tweet(params, callback);
+      return KDSocialShare.shareOnTwitter(params, callback);
     }
   },
   shareOnFacebook: function(params, callback) {
@@ -18,5 +18,12 @@ module.exports = {
     } else {
       return KDSocialShare.shareOnFacebook(params, callback);
     }
-  }
+  },
+  shareBySMS: function(params, callback) {
+    if (!(params['link'] || params['text'])) {
+      callback("missing_link_or_text");
+    } else {
+      return KDSocialShare.shareBySMS(params, callback);
+    }
+  },
 };
